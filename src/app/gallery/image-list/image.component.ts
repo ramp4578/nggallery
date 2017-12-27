@@ -1,7 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Image } from '../../models/image';	
 
-@Input() image: Image;
+
 
 
 @Component({

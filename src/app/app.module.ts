@@ -1,16 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {ImageService} from './services/image.service';
-
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ImageListComponent } from './gallery/image-list/image-list.component';
 import { ImageComponent } from './gallery/image-list/image.component';
+import { ImageService } from './services/image.service';
 import { ImageDetailComponent } from './gallery/image-detail/image-detail.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
+import {Routes, RouterModule} from '@angular/router';
 
+const appRoutes: Routes = [
+  { path: '', redirectTo:'/gallery', pathMatch: 'full'},
+  { path: 'gallery', component: GalleryComponent},
+  { path: 'contact', component: ContactComponent},
+  { path: 'about', component: AboutComponent}
+];
 
 @NgModule({
   declarations: [
@@ -19,9 +26,12 @@ import { ImageDetailComponent } from './gallery/image-detail/image-detail.compon
     GalleryComponent,
     ImageListComponent,
     ImageComponent,
-    ImageDetailComponent
+    ImageDetailComponent,
+    ContactComponent,
+    AboutComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule
   ],
   providers: [ImageService],
